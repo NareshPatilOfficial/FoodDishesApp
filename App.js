@@ -1,4 +1,4 @@
-import RootCompoenent from "./components/rootComponent";
+import RootCompoenent from "./rootComponent";
 
 export default function App() {
   return (
