@@ -1,7 +1,15 @@
-import RootCompoenent from "./rootComponent";
+import { StatusBar, StyleSheet } from 'react-native';
+import CategoriesScreen from './screens/CategoriesScreens';
 
 export default function App() {
   return (
-    <RootCompoenent />
+    <>
+    <StatusBar style='light'/>
+    <CategoriesScreen />
+    </>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {},
+});
