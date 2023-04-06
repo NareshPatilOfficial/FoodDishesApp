@@ -1,28 +1,20 @@
-import { View, Text, StyleSheet } from "react-native";
-import { useEffect } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, ScrollView } from "react-native";
 import { MEALS } from "../data/dummy-data";
 import MealDetails from "../components/MealDetails";
 
 function MealOverview({ route }) {
     const mealId = route.params.mealId;
-    const navigation = useNavigation();
-
-    useEffect(() => {
-        navigation.setOptions({
-            title: mealId
-        })
-    }, [mealId])
     const selectedMeal = MEALS.find(meal => meal.id === mealId);
+
     return (
-        <View>
+        <ScrollView>
             <MealDetails
                 parent={'MealOverview'}
                 mealItemData={selectedMeal}
                 titleStyle={styles.title}
                 instTextStyle={styles.instText}
             />
-        </View>
+        </ScrollView>
     )
 }
 
