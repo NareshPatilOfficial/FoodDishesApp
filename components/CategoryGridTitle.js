@@ -1,9 +1,19 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
-function CategoryGridTitle({title, color}){
+function CategoryGridTitle({item, navigation}){
+    const {
+        id,
+        title,
+        color
+    } = item;
+
+    const categoryGridHandler = () => {
+        navigation.navigate('MealItem', {categoryId: id})
+    }
+    
     return (
         <View style={[styles.outerContainer, {backgroundColor:color}]}>
-            <Pressable android_ripple={{color:'#ccc'}} style={styles.button}>
+            <Pressable android_ripple={{color:'#ccc'}} style={styles.button} onPress={categoryGridHandler}>
                 <View style={styles.innerContainer}>
                     <Text style={styles.title}>{title}</Text>
                 </View>

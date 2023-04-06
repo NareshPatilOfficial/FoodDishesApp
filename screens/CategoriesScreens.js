@@ -2,11 +2,12 @@ import { FlatList } from "react-native";
 import { CATEGORIES } from "../data/dummy-data";
 import CategoryGridTitle from "../components/CategoryGridTitle";
 
-function CategoriesScreen() {
+function CategoriesScreen({navigation}) {
+
     return (
         <FlatList 
             data={CATEGORIES}
-            renderItem={({item}) => <CategoryGridTitle title={item.title} color={item.color}/>}
+            renderItem={({item}) => <CategoryGridTitle item={item} navigation={navigation}/>}
             keyExtractor={category => category.id}
             numColumns={2}
         />
