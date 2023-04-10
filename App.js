@@ -6,6 +6,9 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import MealItems from "./screens/MealItems";
 import MealOverview from "./screens/MealOverview";
 import Favourite from "./screens/FavouriteScreen";
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,12 +20,30 @@ function DrawerNavigation() {
       <Drawer.Screen
         name="ManageCategories"
         component={CategoriesScreen}
-        options={{ title: 'Manage Categories' }}
+        options={{ 
+          title: 'Manage Categories',
+          drawerIcon: ({focused, size}) => (
+            <Ionicons
+              name="md-home"
+              size={size}
+              color={focused ? '#483D8B' : '#ccc'}
+             />
+          )
+         }}
       />
       <Drawer.Screen
         name="Favourite"
         component={Favourite}
-        options={{ title: 'Favourite' }}
+        options={{ 
+          title: 'Favourite',
+          drawerIcon: ({focused,size}) => (
+            <Ionicons
+              name="md-star"
+              size={size}
+              color={focused ? '#483D8B' : '#ccc'}
+            />
+          )
+         }}
       />
     </Drawer.Navigator>
   )
@@ -30,7 +51,7 @@ function DrawerNavigation() {
 
 export default function App() {
   return (
-    <>
+    <Provider store={store}>
       <StatusBar style="light" />
       <NavigationContainer>
         <Stack.Navigator
@@ -59,7 +80,7 @@ export default function App() {
           />
         </Stack.Navigator>
       </NavigationContainer>
-    </>
+    </Provider>
   );
 }
 

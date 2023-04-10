@@ -4,6 +4,7 @@ import { MEALS } from "../data/dummy-data";
 import { FlatList } from "react-native";
 import MealItem from "../components/MealItem";
 import { StyleSheet } from "react-native";
+import MealList from "../components/MealList";
 
 function MealItems({route}) {
     const catId = route.params.categoryId;
@@ -14,10 +15,7 @@ function MealItems({route}) {
 
     return(
         <View style={styles.container}>
-            <FlatList 
-                data={displayedMeals}
-                renderItem={({item}) => <MealItem {...item}/>}
-            />
+            <MealList data={displayedMeals} />
         </View>
     )
 }
