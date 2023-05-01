@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "DishesApp",
+    "name": "My Recipe Book",
     "slug": "DishesApp",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,16 +15,24 @@
       "**/*"
     ],
     "ios": {
+      "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.naresh_patil.MyRecipeBook"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "05ff5419-4e33-4c77-920e-44dcb76b14f4"
+      }
     }
   }
 }
